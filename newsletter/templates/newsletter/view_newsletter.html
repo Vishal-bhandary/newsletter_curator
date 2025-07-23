@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ log.subject }}</title>
+</head>
+<body>
+    <h1>{{ log.subject }}</h1>
+    <p><em>Sent on {{ log.sent_at }}</em></p>
+    <hr>
+    {{ log.content|safe }}
+</body>
+</html>

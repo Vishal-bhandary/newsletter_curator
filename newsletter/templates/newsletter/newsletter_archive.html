@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Newsletter Archive</title>
+</head>
+<body>
+    <h1>📰 Past Newsletters</h1>
+    {% if logs %}
+        <ul>
+        {% for log in logs %}
+            <li>
+                <strong>{{ log.sent_at|date:"M d, Y H:i" }}</strong><br>
+                <a href="{% url 'view_newsletter' log.id %}">View Newsletter</a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No newsletters have been sent yet.</p>
+    {% endif %}
+</body>
+</html>

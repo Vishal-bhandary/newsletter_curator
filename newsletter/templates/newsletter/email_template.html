@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      color: #222;
+      padding: 20px;
+    }
+    h1 {
+      color: #333399;
+    }
+    .article {
+      margin-bottom: 25px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+    .article h2 {
+      margin: 0;
+    }
+    .article a {
+      text-decoration: none;
+      color: #0066cc;
+    }
+    .summary {
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🗞️ Weekly Newsletter</h1>
+  {% for article in articles %}
+  <div class="article">
+    <h2><a href="{{ article.url }}">{{ article.title }}</a></h2>
+    <p><strong>Published:</strong> {{ article.published_at }}</p>
+    <p class="summary">{{ article.summary }}</p>
+  </div>
+  {% endfor %}
+</body>
+</html>

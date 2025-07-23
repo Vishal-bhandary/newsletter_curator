@@ -1,0 +1,27 @@
+{# newsletter/templates/newsletter/admin_dashboard.html #}
+{% extends "admin/base_site.html" %}
+
+{% block content %}
+  <h1>📊 Newsletter Analytics Dashboard</h1>
+
+  <p><strong>Total Subscribers:</strong> {{ subscriber_count }}</p>
+  <p><strong>Newsletters Sent:</strong> {{ log_count }}</p>
+
+  <h2>📅 Subscribers by Frequency</h2>
+  <ul>
+    {% for item in frequency_counts %}
+      <li>{{ item.frequency|title }}: {{ item.count }}</li>
+    {% empty %}
+      <li>No frequency data.</li>
+    {% endfor %}
+  </ul>
+
+  <h2>🔥 Top Categories</h2>
+  <ul>
+    {% for cat, count in top_categories %}
+      <li>{{ cat|title }} — {{ count }}</li>
+    {% empty %}
+      <li>No category data.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}
